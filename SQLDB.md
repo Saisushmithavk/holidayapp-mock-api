@@ -20,14 +20,11 @@ check (role in ('USER','ADMIN'))
 ```
 
 #### Task 2.1: insert values to registration
-
+```
 insert into registration(name,email,password,role) values('nithisha','nithisha@123gmail.com','nithisha123','USER');
-​
-insert into registration(name,email,password,role) values('rohit','rohith@123gmail.com','rohit@13','USER');
-​
-insert into registration(name,email,password,role) values('sai','sai@123gmail.com','sai@1111','ADMIN');
-
-
+​insert into registration(name,email,password,role) values('rohit','rohith@123gmail.com','rohit@13','USER');
+​insert into registration(name,email,password,role) values('sai','sai@123gmail.com','sai@1111','ADMIN');
+```
 #### Task 2.2: List all registration
 ```
 select * from registration;
