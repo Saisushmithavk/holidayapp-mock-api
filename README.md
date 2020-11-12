@@ -1,103 +1,109 @@
-# bankapp-mock-api
+//Task #1: Create Database
 
-#### Prerequisite
-* Create a folder
-```
-mkdir bankapp-mock-api
-cd bankapp-mock-api
-```
+create database holidayapp_db;
+use holidayapp_db;
 
-#### Step 1: Create a node js project
-```
-npm init -y
-```
+//Task 2: Create registration table
 
-#### Step 2: Install json server dependency
-```
-npm i json-server
-```
+create table registration(
+id int primary key auto_increment,
+name varchar(30) not null,
+email varchar(20) not null,
+password varchar(15) not null,
+role varchar(10) not null,
+unique(email),
+check (role in ('USER','ADMIN'))
+​
+);
+​
+//Task 2.1: create value to registration
+​
+insert into registration(name,email,password,role) values('nithisha','nithisha@123gmail.com','nithisha123','USER');
+​
+insert into registration(name,email,password,role) values('rohit','rohith@123gmail.com','rohit@13','USER');
+​
+insert into registration(name,email,password,role) values('sai','sai@123gmail.com','sai@1111','ADMIN');
 
-#### Step 3: Create server.js
-```js
-const jsonServer = require('json-server')
+//Task 2.2: List all registration
 
-const server = jsonServer.create()
+select * from registration;
 
-const router = jsonServer.router('db.json')
-const middlewares = jsonServer.defaults()
- 
-server.use(middlewares)
-server.use('/api', router)
-server.listen(process.env.PORT || 5000, () => {
-  console.log('JSON Server is running')
-})
+// Task 2.3: create signin Table
+
+create table signin(
+id int primary key auto_increment,
+user_id int not null,
+email varchar(20) not null,
+password varchar(15) not null,
+foreign key (user_id) references registration(id)
+​
+);
+​
+//inserting into signin table
+​
+insert into signin (email,password,role) values ('sai@gmail.com','sai@111','ADMIN');
+
+update signin set active =1 where id = 1;
+
+//Task 3: Create destination table
+
+create table destination
+(
+dest_id int primary key auto_increment,
+destname varchar(30),
+description text(500),
+priority varchar(50),
+status varchar(50));
+
+//Task 3.1: update destination
+insert int
+insert into destination (destname, description) values ('DUMAS BEACH-Gujarat','considered one of the most haunted places in Gujarat.');
+insert into destination (destname, description) values ('AGONDA BEACH-goa','serves as a nesting ground for olive ridley sea turtles.');
 
 
-```
+//Task 3.2: list Destination
 
+select * from destination where destname='DUMAS BEACH-Gujarat';
 
-#### Step 4: Create db.json
-```js
-{
-    "users": [
-        { "id": 1, "name":"Naresh Kumar H", "email":"nareshkumarh@live.com", 
-        "password":"pass123", "role": "USER"
-        },
-        { "id": 2, "name":"Tushant", "email":"tushant@gmail.com", 
-            "password":"pass123", "role": "ADMIN"
-        }
-    ],
-    "accounts":[
+//Task 4: create Packages
 
-    ],
-    "transactions":[
+create table packages 
+( 
+dest_id int primary key auto_increment,
+user_id int not null,
+packagename varchar(50) not null,
+price int,
+duration int,
+active boolean not null default 0,
+unique ( user_id, packagename),
+foreign key (user_id) references destination(dest_id));
 
-    ]
-}
-```
+//Task 4.1: insert values to packages
 
-#### Step 5: Run the Node JS Project
-```
-node server.js
-```
+insert into packages (user_id,packagename,price,duration) values (1,'DUMAS-GUJARAT',20000,3);
+insert into packages (user_id,packagename,price,duration) values (2,'AGONDA-GOA',23000,2);
 
-#### Step 6: Test - List Users API 
-```
-http://localhost:5000/api/users
-```
+//Task: 4.2 list packages to user
 
-Output:
-```js
-[
- {
- id: 1,
- name: "Naresh Kumar H",
- email: "nareshkumarh@live.com",
- password: "pass123",
- role: "USER"
- },
-{
- id: 2,
- name: "Tushant",
- email: "tushant@gmail.com",
- password: "pass123",
- role: "ADMIN"
-}
-]
-```
+select * from packages where packagename='DUMAS-GUJARAT';
 
-#### Step 7: Test - View User Details API 
-```
-http://localhost:5000/api/users/1
-```
+//Task 5: Book Package
+create table bookpackage(
+user_id int primary key auto_increment,
+book_id int not null,
+packagename varchar(50) not null,
+price int,
+duration int,
+facilities varchar(40),
+active boolean not null default 0,
+unique ( book_id, packagename),
+foreign key (book_id) references packages(user_id));
 
-Output:
-```js
- {
- id: 1,
- name: "Naresh Kumar H",
- email: "nareshkumarh@live.com",
- password: "pass123",
- role: "USER"
- }
-```
+//TASK 5.1: insert table to bookpackage
+
+insert into bookpackage(book_id,packagename,price,duration,facilities) values(1,'DUMAS-GUJARAT','20000',3,'ac,pool,lodging');
+insert into bookpackage(book_id,packagename,price,duration,facilities) values(2,'AGONDA-GUJARAT','20000',3,'ac,pool,lodging');
+
+//Task: 5.2 View Bookings
+
+select * from bookpackage where book_id=2;
