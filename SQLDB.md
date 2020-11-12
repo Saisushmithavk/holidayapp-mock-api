@@ -19,8 +19,8 @@ check (role in ('USER','ADMIN'))
 );
 ```
 
-#### Task 2.1: create value to registration
-​```
+#### Task 2.1: insert values to registration
+
 insert into registration(name,email,password,role) values('nithisha','nithisha@123gmail.com','nithisha123','USER');
 ​
 insert into registration(name,email,password,role) values('rohit','rohith@123gmail.com','rohit@13','USER');
@@ -46,7 +46,7 @@ foreign key (user_id) references registration(id)
 ``` 
 
 #### Task 2.4: insert values into signin table
-​```
+
 insert into signin (email,password,role) values ('sai@gmail.com','sai@111','ADMIN');
 insert into signin(email,password,role) values('nithisha@123gmail.com','nithisha123','USER');
 
