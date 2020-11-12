@@ -43,10 +43,10 @@ foreign key (user_id) references registration(id)
 ``` 
 
 #### Task 2.4: insert values into signin table
-
+```
 insert into signin (email,password,role) values ('sai@gmail.com','sai@111','ADMIN');
 insert into signin(email,password,role) values('nithisha@123gmail.com','nithisha123','USER');
-
+```
 ### Task 2.5: List signin table
 ```
 selelct * from signin where role='ADMIN';
