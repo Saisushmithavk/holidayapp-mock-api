@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Frontend</h3>
+    <h3>List All Users</h3>
+    <div id="list-users">
+    </div>
+    <h3>View Users</h3>
+    <div id="view-user">
+    </div>
+    <div>    <button type="button" onclick="register()">REgister</button>
+    </div>
+    <script>
+        let serverUrl = "http://localhost:5000/api";
+        function displayUser(userId) {
+            // Get all Users
+            let apiUrl = serverUrl + "/users/" + userId;
+            console.log(apiUrl);
+            // Call backend api
+            fetch(apiUrl).then(res => res.json()).then(res => {
+                console.log(res);
+                document.querySelector("#view-user").innerHTML = JSON.stringify(res);
+            });
+        }
+        function listUsers() {
+            // Get all Users
+            let apiUrl = serverUrl + "/users";
+            console.log(apiUrl);
+            // Call backend api
+            fetch(apiUrl).then(res => res.json()).then(res => {
+                console.log(res);
+                let content = "";
+                for (let obj of res){
+                  content += JSON.stringify(obj);
+                  content += `<button type="button" onclick="displayUser(${obj.id})">View</button>`;   
+                  content += `<button type="button" onclick="deleteUser(${obj.id})">delete</button>`;
+                  content += "</br>"
+                }
+                document.querySelector("#list-users").innerHTML = content;
+            });
+        }
+        function register(){
+            let user = { id: 4, name:"Prabhu", email:"prabhu@gmail.com", password:"pass123", role:"USER"};
+            console.log(user);
+            let url = serverUrl + "/users";
+            postData(url, user)
+            .then(data => {
+                console.log(data); // JSON data parsed by `data.json()` call
+            });
+        }
+        async function postData(url = '', data = {}) {
+            // Default options are marked with *
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+            return response.json(); // parses JSON response into native JavaScript objects
+        }
+        function deleteUser(userId){
+            console.log("Delete User" , userId);
+            let cfm = confirm("Do you want to delete user?");
+            if(cfm){
+                //backend api
+                let url = serverUrl + "/users/"+ userId;
+                console.log(url);
+                // http://localhost:5000/api/users ( DELETE )
+                deleteData(url).then(res=>{
+                    console.log(res);
+                    alert("Successfully Deleted");
+                })
+            }
+        }
+       
+        listUsers();
+       // displayUser(1);
+    </script>
+</body>
+</html>
