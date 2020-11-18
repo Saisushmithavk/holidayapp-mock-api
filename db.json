@@ -32,14 +32,14 @@
   ],
   "packages": [
     {
-      "id": "P101",
+      "packid": "P101",
       "Duration": 3,
       "Ratings": 3,
       "Facilities": "hotel,pool",
       "price": 20000
     },
     {
-      "id": "P102",
+      "packid": "P102",
       "Duration": 4,
       "Ratings": 4,
       "Facilities": "hotel,pool,parking",
@@ -50,22 +50,22 @@
   "viewdestination":[
     {
       "id":"gujarat",
-      "title": "DUMAS BEACH-GUJARAT",
+      "destitle": "DUMAS BEACH-GUJARAT",
       "desc": "Dumas Beach is an urban beach along the Arabian Sea, located 21 kilometres 13 mi southwest of the City of Surat in the Indian state of Gujarat.It is a popular tourist destination in South Gujarat.Dumas Beach is unjustly infamous for being in the top 35 haunted spots in India"
     },
     {
       "id":"goa",
-      "title": "AGONDA BEACH-GOA",
+      "destitle": "AGONDA BEACH-GOA",
       "desc": "Agonda is a large village located in Canacona in South Goa district, India. Agonda is famous for its beach and It is one of the only four beaches designated as turtle nesting sites under the Coastal Regulation Zone 2011 notification.There is one more beach on other side of Agonda cliff called Cola beach which has an adjoining lagoon."
     },
     {
       "id":"Thanjavur",
-      "title": "BRIHADESHWARA TEMPLE-TANJAVUR",
+      "destitle": "BRIHADESHWARA TEMPLE-TANJAVUR",
       "desc": "Brihadishvara Temple, also called Rajarajesvaram or Peruvudaiyar Kovil, is a Hindu temple dedicated to Shiva located in South bank of Kaveri river in Thanjavur, Tamil Nadu, India.It is one of the largest South Indian temples and an exemplary example of a fully realized Dravidian architecture. It is called as Dhakshina Meru (Meru of south).Built by Tamil king Raja Raja Chola I between 1003 and 1010 AD, the temple is a part of the UNESCO World Heritage Site known as the Great Living Chola Temples, along with the Chola dynasty era Gangaikonda Cholapuram temple and Airavatesvara temple that are about 70 kilometres (43 mi) and 40 kilometres (25 mi) to its northeast respectively."
     },
     {
       "id":"jaipur",
-      "title": "HAWAMAHAL-JAIPUR",
+      "destitle": "HAWAMAHAL-JAIPUR",
       "desc": "Hawa Mahal (English translation: The Palace of Winds  or The Palace of Breeze is a palace in Jaipur, India approximately 300 kilometers from the capital city of Delhi. Built from red and pink sandstone, the palace sits on the edge of the City Palace,Jaipur, and extends to the Zenana, or women's chambers. The structure was built in 1799 by Maharaja Sawai Pratap Singh, the grandson of Maharaja Sawai Jai Singh, who was the founder of Jaipur. He was so inspired by the unique structure of Khetri Mahal that he built this grand and historical palace. It was designed by Lal Chand Ustad. Its five floor exterior is akin to honeycomb with its 953 small windows called Jharokhas decorated with intricate latticework."
     }
 
