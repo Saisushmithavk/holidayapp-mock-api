@@ -32,7 +32,7 @@
   ],
   "packages": [
     {
-      "packageId": "P101",
+      "id": "P101",
       "Duration": 3,
       "Ratings": 3,
       "Facilities": "hotel,pool",
