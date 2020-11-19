@@ -32,14 +32,14 @@
   ],
   "packages": [
     {
-      "packid": "P101",
+      "id": "P101",
       "Duration": 3,
       "Ratings": 3,
       "Facilities": "hotel,pool",
       "price": 20000
     },
     {
-      "packid": "P102",
+      "id": "P102",
       "Duration": 4,
       "Ratings": 4,
       "Facilities": "hotel,pool,parking",
@@ -71,6 +71,6 @@
 
   ],
   "confirmpackage":[
-    
+
   ]
 }
