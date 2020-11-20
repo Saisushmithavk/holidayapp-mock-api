@@ -12,7 +12,7 @@
       "name": "SIRI",
       "email": "siri@gmail.com",
       "password": "siri#123",
-      "role": "USERS"
+      "role": "USER"
     }
   ],
   "destination": [
